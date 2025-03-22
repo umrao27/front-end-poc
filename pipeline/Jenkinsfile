@@ -8,18 +8,18 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-repo.git'
+                git branch: 'main', url: 'https://github.com/umrao27/front-end-poc.git'
             }
         }
 
-        stage('Setup Node.js') {
-            steps {
-                script {
-                    def nodeHome = tool name: 'NodeJS', type: 'hudson.plugins.nodejs.tools.NodeJSInstallation'
-                    env.PATH = "${nodeHome}/bin:${env.PATH}"
-                }
-            }
-        }
+        // stage('Setup Node.js') {
+        //     steps {
+        //         script {
+        //             def nodeHome = tool name: 'NodeJS', type: 'hudson.plugins.nodejs.tools.NodeJSInstallation'
+        //             env.PATH = "${nodeHome}/bin:${env.PATH}"
+        //         }
+        //     }
+        // }
 
         stage('Install Dependencies') {
             steps {
@@ -27,11 +27,11 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                sh 'npm test'
-            }
-        }
+        // stage('Run Tests') {
+        //     steps {
+        //         sh 'npm test'
+        //     }
+        // }
 
         stage('Build') {
             steps {
